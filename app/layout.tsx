@@ -1,17 +1,17 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import type { Metadata } from "next";
+import { Inter, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
+import "./globals.css";
 
-const _inter = Inter({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
   title: "DCYPHERNET | AI-Powered Web Design & Automation",
   description:
     "We design high-converting, secure websites and integrate AI automation that captures leads, responds instantly, and turns visitors into customers — automatically.",
-  generator: "dcypernet.com",
+  generator: "dcyphernet.com",
   icons: {
     icon: [
       {
@@ -29,19 +29,36 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
+      <head>
+        {/* Zoho SalesIQ */}
+        <Script id="zoho-salesiq-init" strategy="afterInteractive">
+          {`
+            window.$zoho = window.$zoho || {};
+            $zoho.salesiq = $zoho.salesiq || { ready: function() {} };
+          `}
+        </Script>
+
+        <Script
+          id="zoho-salesiq-widget"
+          src="https://salesiq.zohopublic.com/widget?wc=siqc96b96d5a0d13e184bfdd2fdd213a9af393890f772d8c59f7229d39ae5d38248"
+          strategy="afterInteractive"
+          defer
+        />
+      </head>
+
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

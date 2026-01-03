@@ -96,7 +96,7 @@ export default function CheckoutPage() {
     "AI chat assistant (24/7 visitor response)",
     "Automated lead capture system",
     "Email & WhatsApp follow-ups",
-    "Secure hosting & domain included",
+    "Secure hosting & .com domain included",
     "Up to 10 custom emails with your domain",
     "Mobile-first, fast, SEO-ready build",
   ]
