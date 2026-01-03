@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "DCYPHERNET | AI-Powered Web Design & Automation",
   description:
     "We design high-converting, secure websites and integrate AI automation that captures leads, responds instantly, and turns visitors into customers — automatically.",
-  generator: "v0.app",
+  generator: "dcypernet.com",
   icons: {
     icon: [
       {
